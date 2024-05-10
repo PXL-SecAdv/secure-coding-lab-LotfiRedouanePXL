@@ -13,8 +13,8 @@ dotenv.config({ path: './backend.env' });
 
 const pool = new pg.Pool({
   user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_DATABASE,
+  host: 'db',
+  database: 'pxldb',
   password: process.env.DB_PASSWORD,
   port: 5432,
   connectionTimeoutMillis: 5000
