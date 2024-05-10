@@ -9,7 +9,7 @@ const dotenv = require('dotenv'); // Import dotenv package
 const port = 3000;
 
 // Load environment variables from backend.env file
-dotenv.config({ path: './backend.env' });
+dotenv.config({ path: './credentials.env' });
 
 const pool = new pg.Pool({
   user: process.env.DB_USER,
