@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:80"
     environment:
-      - API_URL=http://backend:3000  # Voorbeeld van een niet-gevoelige omgevingsvariabele
+      - API_URL=http://backend:3000 
 
   backend:
     build: ./backend
