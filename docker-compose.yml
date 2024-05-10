@@ -1,5 +1,4 @@
 services:
-
   frontend:
     build: ./frontend
     container_name: frontend
@@ -7,6 +6,8 @@ services:
       - backend
     ports:
       - "8080:80"
+    environment:
+      - API_URL=http://backend:3000  # Voorbeeld van een niet-gevoelige omgevingsvariabele
 
   backend:
     build: ./backend
@@ -15,6 +16,10 @@ services:
       - db
     ports:
       - "3000:3000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=${DB_USER}  # Gevoelige omgevingsvariabele voor gebruikersnaam
+      - DB_PASSWORD=${DB_PASSWORD}  # Gevoelige omgevingsvariabele voor wachtwoord
 
   db:
     image: postgres
