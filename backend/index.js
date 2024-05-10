@@ -4,16 +4,20 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors')
+const dotenv = require('dotenv'); // Import dotenv package
 
-const port=3000;
+const port = 3000;
+
+// Load environment variables from backend.env file
+dotenv.config({ path: './backend.env' });
 
 const pool = new pg.Pool({
-    user: 'secadv',
-    host: 'db',
-    database: 'pxldb',
-    password: 'ilovesecurity',
-    port: 5432,
-    connectionTimeoutMillis: 5000
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_DATABASE,
+  password: process.env.DB_PASSWORD,
+  port: 5432,
+  connectionTimeoutMillis: 5000
 })
 
 console.log("Connecting...:")
